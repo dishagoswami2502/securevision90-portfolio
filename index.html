@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Surveillance System – Engineering Notebook Portfolio</title>
+  <meta name="description" content="An offline-first AI-powered surveillance system running on Raspberry Pi 5 with real-time face recognition, weapon detection, and fight detection." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ─── PARTICLES CANVAS ─── -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ─── NAVBAR ─── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <img src="Logo (2).jpeg" alt="Project Logo" class="nav-logo-img" />
+        <span class="nav-logo-text">SecureVision<span class="accent">90</span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#stack" class="nav-link">Tech Stack</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#architecture" class="nav-link">Architecture</a></li>
+        <li><a href="#team" class="nav-link">Team</a></li>
+        <li><a href="#notebook" class="nav-link nav-link-notebook">📓 Notebook</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        Engineering Notebook Project · 2026
+      </div>
+      <h1 class="hero-title">
+        AI-Powered<br />
+        <span class="gradient-text">Surveillance System</span>
+      </h1>
+      <p class="hero-subtitle">
+        Offline-first real-time security powered by Raspberry Pi 5 — detecting
+        faces, weapons, and threats with zero cloud dependency.
+      </p>
+      <div class="hero-cta">
+        <a href="#features" class="btn btn-primary">Explore Features</a>
+        <a href="#stack" class="btn btn-outline">Tech Stack</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-value">90%+</span>
+          <span class="stat-label">Detection Accuracy</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">6.7 FPS</span>
+          <span class="stat-label">Real-time Processing</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">100%</span>
+          <span class="stat-label">Offline Capable</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-phone-wrap">
+        <div class="scan-ring ring1"></div>
+        <div class="scan-ring ring2"></div>
+        <div class="scan-ring ring3"></div>
+        <img src="WhatsApp Image 2026-06-26 at 11.17.32 AM.jpeg" alt="AI Surveillance Dashboard" class="hero-screenshot" />
+        <div class="alert-badge-float alert-1">⚠ Weapon Detected</div>
+        <div class="alert-badge-float alert-2">🎯 Person 93%</div>
+        <div class="alert-badge-float alert-3">✅ Known Face</div>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span>Scroll to explore</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─── -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Overview</span>
+        <h2 class="section-title">What is <span class="gradient-text">SecureVision 90</span>?</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="lead-text">
+            Most surveillance systems are either passive CCTV cameras that only
+            record incidents, or expensive AI solutions requiring cloud servers
+            and constant internet connectivity.
+          </p>
+          <p>
+            <strong>SecureVision 90</strong> solves this with an affordable,
+            offline-capable, AI-driven surveillance system running entirely on a
+            <em>Raspberry Pi 5</em>. It handles real-time person detection, face
+            recognition, weapon identification, and fight detection — all locally.
+          </p>
+          <div class="about-highlight-cards">
+            <div class="highlight-card">
+              <span class="hc-icon">🔒</span>
+              <div>
+                <h4>Privacy First</h4>
+                <p>All processing happens on-device — no data leaves the premises.</p>
+              </div>
+            </div>
+            <div class="highlight-card">
+              <span class="hc-icon">⚡</span>
+              <div>
+                <h4>Real-Time Alerts</h4>
+                <p>Instant dashboard notifications with timestamped alert logs.</p>
+              </div>
+            </div>
+            <div class="highlight-card">
+              <span class="hc-icon">💰</span>
+              <div>
+                <h4>Cost Effective</h4>
+                <p>Fraction of commercial AI camera system costs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="about-img-stack">
+            <img src="WhatsApp Image 2026-06-26 at 11.15.27 AM.jpeg" alt="System Running" class="about-img about-img-main" />
+            <img src="WhatsApp Image 2026-06-26 at 11.17.31 AM.jpeg" alt="Face Detection" class="about-img about-img-overlay" />
+            <div class="about-badge">
+              <span class="badge-icon">🎓</span>
+              Engineering Notebook
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FEATURES ─── -->
+  <section id="features" class="section features-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Capabilities</span>
+        <h2 class="section-title">Core <span class="gradient-text">Features</span></h2>
+        <p class="section-sub">Four powerful AI modules working in real-time harmony</p>
+      </div>
+      <div class="features-grid">
+
+        <div class="feature-card" id="feat-person">
+          <div class="feat-icon-wrap feat-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Person Detection</h3>
+          <p>Real-time multi-person detection with bounding boxes and confidence scores. Built on YOLOv8 for blazing-fast inference.</p>
+          <div class="feat-demo-img">
+            <img src="WhatsApp Image 2026-06-26 at 11.15.28 AM (2).jpeg" alt="Person Detection" />
+            <div class="feat-overlay">
+              <span class="feat-accuracy">~90% Accuracy</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-card" id="feat-face">
+          <div class="feat-icon-wrap feat-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M3 21a9 9 0 0 1 18 0"/><path d="M9 10.5s1 1.5 3 1.5 3-1.5 3-1.5"/><line x1="9" y1="8" x2="9" y2="8"/><line x1="15" y1="8" x2="15" y2="8"/></svg>
+          </div>
+          <h3>Face Recognition</h3>
+          <p>Identifies known vs. unknown individuals using deep face embeddings. Registers faces and triggers alerts for strangers.</p>
+          <div class="feat-demo-img">
+            <img src="WhatsApp Image 2026-06-26 at 11.17.31 AM (2).jpeg" alt="Face Recognition" />
+            <div class="feat-overlay">
+              <span class="feat-accuracy">Known / Unknown</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-card" id="feat-weapon">
+          <div class="feat-icon-wrap feat-red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3>Weapon Detection</h3>
+          <p>Detects dangerous objects like scissors, knives, and other weapons in real-time. Triggers immediate color-coded alerts.</p>
+          <div class="feat-demo-img">
+            <img src="WhatsApp Image 2026-06-26 at 11.17.31 AM (1).jpeg" alt="Weapon Detection" />
+            <div class="feat-overlay">
+              <span class="feat-accuracy danger">⚠ Threat Detected</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-card" id="feat-fight">
+          <div class="feat-icon-wrap feat-orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>Fight / Aggression Detection</h3>
+          <p>Skeleton-based pose analysis detects aggressive movements and fights between individuals. Powered by MediaPipe.</p>
+          <div class="feat-demo-img">
+            <img src="WhatsApp Image 2026-06-26 at 11.17.32 AM.jpeg" alt="Fight Detection" />
+            <div class="feat-overlay">
+              <span class="feat-accuracy warning">🥊 Pose Analysis</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TECH STACK ─── -->
+  <section id="stack" class="section stack-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Technologies</span>
+        <h2 class="section-title">Libraries & <span class="gradient-text">Tech Stack</span></h2>
+        <p class="section-sub">Click on any library to learn more about it</p>
+      </div>
+      <div class="stack-categories">
+
+        <div class="stack-category">
+          <h3 class="category-label">🧠 AI / Machine Learning</h3>
+          <div class="lib-grid">
+            <div class="lib-card" id="lib-yolo" onclick="openLibModal('yolo')">
+              <img src="https://avatars.githubusercontent.com/u/26833433?v=4" alt="YOLOv8" class="lib-logo" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect fill=\'%23FF6B35\' width=\'100\' height=\'100\' rx=\'20\'/><text y=\'.9em\' font-size=\'60\' x=\'50%\' text-anchor=\'middle\' fill=\'white\'>Y</text></svg>'" />
+              <span class="lib-name">YOLOv8</span>
+              <span class="lib-role">Object Detection</span>
+              <div class="lib-hover-hint">Click to learn more →</div>
+            </div>
+            <div class="lib-card" id="lib-mediapipe" onclick="openLibModal('mediapipe')">
+              <img src="https://avatars.githubusercontent.com/u/50450676?v=4" alt="MediaPipe" class="lib-logo" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect fill=\'%234285F4\' width=\'100\' height=\'100\' rx=\'20\'/><text y=\'.9em\' font-size=\'60\' x=\'50%\' text-anchor=\'middle\' fill=\'white\'>M</text></svg>'" />
+              <span class="lib-name">MediaPipe</span>
+              <span class="lib-role">Pose Estimation</span>
+              <div class="lib-hover-hint">Click to learn more →</div>
+            </div>
+            <div class="lib-card" id="lib-deepface" onclick="openLibModal('deepface')">
+              <div class="lib-logo lib-logo-text" style="background:linear-gradient(135deg,#6C63FF,#3B82F6)">DF</div>
+              <span class="lib-name">DeepFace</span>
+              <span class="lib-role">Face Recognition</span>
+              <div class="lib-hover-hint">Click to learn more →</div>
+            </div>
+            <div class="lib-card" id="lib-opencv" onclick="openLibModal('opencv')">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/OpenCV_Logo_with_text_svg_version.svg" alt="OpenCV" class="lib-logo lib-logo-svg" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect fill=\'%2300CC00\' width=\'100\' height=\'100\' rx=\'20\'/><text y=\'.9em\' font-size=\'40\' x=\'50%\' text-anchor=\'middle\' fill=\'white\'>CV</text></svg>'" />
+              <span class="lib-name">OpenCV</span>
+              <span class="lib-role">Computer Vision</span>
+              <div class="lib-hover-hint">Click to learn more →</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack-category">
+          <h3 class="category-label">🖥️ Backend & Server</h3>
+          <div class="lib-grid">
+            <div class="lib-card" id="lib-python" onclick="openLibModal('python')">
+              <img src="https://www.python.org/static/community_logos/python-logo-generic.svg" alt="Python" class="lib-logo lib-logo-svg" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect fill=\'%233776AB\' width=\'100\' height=\'100\' rx=\'20\'/><text y=\'.9em\' font-size=\'60\' x=\'50%\' text-anchor=\'middle\' fill=\'white\'>Py</text></svg>'" />
+              <span class="lib-name">Python 3.11</span>
+              <span class="lib-role">Core Language</span>
+              <div class="lib-hover-hint">Click to learn more →</div>
+            </div>
+            <div class="lib-card" id="lib-flask" onclick="openLibModal('flask')">
+              <img src="https://flask.palletsprojects.com/en/stable/_images/flask-horizontal.png" alt="Flask" class="lib-logo lib-logo-svg" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect fill=\'%23000000\' width=\'100\' height=\'100\' rx=\'20\'/><text y=\'.9em\' font-size=\'60\' x=\'50%\' text-anchor=\'middle\' fill=\'white\'>F</text></svg>'" />
+              <span class="lib-name">Flask</span>
+              <span class="lib-role">Web Framework</span>
+              <div class="lib-hover-hint">Click to learn more →</div>
+            </div>
+            <div class="lib-card" id="lib-socketio" onclick="openLibModal('socketio')">
+              <div class="lib-logo lib-logo-text" style="background:linear-gradient(135deg,#010101,#252525)">
+                <svg viewBox="0 0 100 100" style="width:40px;height:40px"><circle cx="50" cy="50" r="40" fill="#25D4FE"/><path d="M30 50 Q50 20 70 50 Q50 80 30 50Z" fill="white"/></svg>
+              </div>
+              <span class="lib-name">Socket.IO</span>
+              <span class="lib-role">Real-time Events</span>
+              <div class="lib-hover-hint">Click to learn more →</div>
+            </div>
+            <div class="lib-card" id="lib-threading" onclick="openLibModal('threading')">
+              <div class="lib-logo lib-logo-text" style="background:linear-gradient(135deg,#FF6B6B,#EE5A24)">⚙️</div>
+              <span class="lib-name">Threading</span>
+              <span class="lib-role">Parallel Processing</span>
+              <div class="lib-hover-hint">Click to learn more →</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack-category">
+          <h3 class="category-label">🌐 Frontend Dashboard</h3>
+          <div class="lib-grid">
+            <div class="lib-card" id="lib-html5" onclick="openLibModal('html5')">
+              <div class="lib-logo lib-logo-text" style="background:#E44D26">
+                <svg viewBox="0 0 512 512" style="width:40px;height:40px"><path d="M107.6 471l-33-370.4h362.8l-33 370.2L255.7 512" fill="white"/><path d="M256 480.5V97h148.3L376 447" fill="#white"/></svg>
+                <span style="color:white;font-weight:800;font-size:14px">HTML5</span>
+              </div>
+              <span class="lib-name">HTML5 / CSS3</span>
+              <span class="lib-role">Dashboard UI</span>
+              <div class="lib-hover-hint">Click to learn more →</div>
+            </div>
+            <div class="lib-card" id="lib-chartjs" onclick="openLibModal('chartjs')">
+              <div class="lib-logo lib-logo-text" style="background:linear-gradient(135deg,#FF6384,#FF9F40)">
+                <svg viewBox="0 0 100 100" style="width:40px;height:40px"><polyline points="10,80 30,50 50,65 70,30 90,20" fill="none" stroke="white" stroke-width="8" stroke-linecap="round"/></svg>
+              </div>
+              <span class="lib-name">Chart.js</span>
+              <span class="lib-role">Alert Analytics</span>
+              <div class="lib-hover-hint">Click to learn more →</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack-category">
+          <h3 class="category-label">🔧 Hardware</h3>
+          <div class="lib-grid">
+            <div class="lib-card" id="lib-rpi" onclick="openLibModal('rpi')">
+              <div class="lib-logo lib-logo-text" style="background:#C51A4A">
+                <svg viewBox="0 0 100 100" style="width:40px;height:40px"><circle cx="50" cy="50" r="35" fill="white"/><circle cx="50" cy="50" r="25" fill="#C51A4A"/><circle cx="50" cy="50" r="10" fill="white"/></svg>
+              </div>
+              <span class="lib-name">Raspberry Pi 5</span>
+              <span class="lib-role">Edge Computing</span>
+              <div class="lib-hover-hint">Click to learn more →</div>
+            </div>
+            <div class="lib-card" id="lib-webcam" onclick="openLibModal('webcam')">
+              <div class="lib-logo lib-logo-text" style="background:linear-gradient(135deg,#2d3436,#636e72)">📷</div>
+              <span class="lib-name">Logitech Webcam</span>
+              <span class="lib-role">Video Input</span>
+              <div class="lib-hover-hint">Click to learn more →</div>
+            </div>
+            <div class="lib-card" id="lib-numpy" onclick="openLibModal('numpy')">
+              <div class="lib-logo lib-logo-text" style="background:linear-gradient(135deg,#013243,#4DABCF)">
+                <span style="color:white;font-weight:800;font-size:20px">np</span>
+              </div>
+              <span class="lib-name">NumPy</span>
+              <span class="lib-role">Array Processing</span>
+              <div class="lib-hover-hint">Click to learn more →</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── GALLERY ─── -->
+  <section id="gallery" class="section gallery-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Project Photos</span>
+        <h2 class="section-title">In <span class="gradient-text">Action</span></h2>
+        <p class="section-sub">Real demonstrations from our engineering notebook</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item large" onclick="openLightbox(0)">
+          <img src="WhatsApp Image 2026-06-26 at 11.15.27 AM.jpeg" alt="AI Dashboard Running" />
+          <div class="gallery-caption">
+            <span class="gcap-tag">Live Demo</span>
+            <p>AI Surveillance Dashboard with 4 people detected</p>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(1)">
+          <img src="WhatsApp Image 2026-06-26 at 11.15.27 AM (1).jpeg" alt="Face Recognition" />
+          <div class="gallery-caption">
+            <span class="gcap-tag">Face Recognition</span>
+            <p>Akshat Prakhar identified in real-time</p>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(2)">
+          <img src="WhatsApp Image 2026-06-26 at 11.17.30 AM.jpeg" alt="Person Detection" />
+          <div class="gallery-caption">
+            <span class="gcap-tag">Detection</span>
+            <p>Person 93% confidence bounding box</p>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(3)">
+          <img src="WhatsApp Image 2026-06-26 at 11.17.31 AM.jpeg" alt="Face Detection Green Box" />
+          <div class="gallery-caption">
+            <span class="gcap-tag">Face Detection</span>
+            <p>Multi-face detection with green bounding boxes</p>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(4)">
+          <img src="WhatsApp Image 2026-06-26 at 11.17.31 AM (1).jpeg" alt="Weapon Detection" />
+          <div class="gallery-caption">
+            <span class="gcap-tag danger-tag">⚠ Weapon</span>
+            <p>Scissors detected — immediate red-box alert</p>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(5)">
+          <img src="WhatsApp Image 2026-06-26 at 11.17.31 AM (2).jpeg" alt="Unknown Face Alert" />
+          <div class="gallery-caption">
+            <span class="gcap-tag danger-tag">Unknown</span>
+            <p>Unauthorized faces triggering UNKNOWN alerts</p>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(6)">
+          <img src="WhatsApp Image 2026-06-26 at 11.17.32 AM.jpeg" alt="Dashboard Weapon Alert" />
+          <div class="gallery-caption">
+            <span class="gcap-tag">Dashboard</span>
+            <p>Live alert dashboard — weapon + face alerts</p>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(7)">
+          <img src="WhatsApp Image 2026-06-26 at 11.17.32 AM (1).jpeg" alt="Event Exhibition" />
+          <div class="gallery-caption">
+            <span class="gcap-tag">Exhibition</span>
+            <p>Live demo at engineering event with dual cameras</p>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(8)">
+          <img src="WhatsApp Image 2026-06-26 at 11.33.43 AM.jpeg" alt="Project Logo" />
+          <div class="gallery-caption">
+            <span class="gcap-tag">Project Logo</span>
+            <p>SecureVision 90 — Official project identity</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ARCHITECTURE ─── -->
+  <section id="architecture" class="section arch-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">System Design</span>
+        <h2 class="section-title">How It <span class="gradient-text">Works</span></h2>
+      </div>
+      <div class="arch-flow">
+        <div class="arch-step" data-step="1">
+          <div class="arch-step-icon">📷</div>
+          <div class="arch-step-label">Camera Input</div>
+          <div class="arch-step-desc">Logitech webcam streams live video to Raspberry Pi 5</div>
+          <div class="arch-arrow">→</div>
+        </div>
+        <div class="arch-step" data-step="2">
+          <div class="arch-step-icon">🧠</div>
+          <div class="arch-step-label">AI Processing</div>
+          <div class="arch-step-desc">YOLO, MediaPipe & DeepFace run in parallel threads</div>
+          <div class="arch-arrow">→</div>
+        </div>
+        <div class="arch-step" data-step="3">
+          <div class="arch-step-icon">🔍</div>
+          <div class="arch-step-label">Detection</div>
+          <div class="arch-step-desc">Person, face, weapon & fight events identified</div>
+          <div class="arch-arrow">→</div>
+        </div>
+        <div class="arch-step" data-step="4">
+          <div class="arch-step-icon">📡</div>
+          <div class="arch-step-label">Socket.IO</div>
+          <div class="arch-step-desc">Events streamed in real-time to web dashboard</div>
+          <div class="arch-arrow">→</div>
+        </div>
+        <div class="arch-step" data-step="5">
+          <div class="arch-step-icon">📊</div>
+          <div class="arch-step-label">Dashboard</div>
+          <div class="arch-step-desc">Live feed + alert log on Raspberry Pi's TFT screen</div>
+        </div>
+      </div>
+
+      <div class="specs-grid">
+        <div class="spec-card">
+          <h4>🎯 Accuracy</h4>
+          <ul>
+            <li>Person Detection: <strong>~90%</strong></li>
+            <li>Face Recognition: <strong>~85%</strong></li>
+            <li>Weapon Detection: <strong>~88%</strong></li>
+            <li>Fight Detection: <strong>~80%</strong></li>
+          </ul>
+        </div>
+        <div class="spec-card">
+          <h4>⚡ Performance</h4>
+          <ul>
+            <li>Processing: <strong>3–7 FPS</strong></li>
+            <li>Latency: <strong>&lt; 300ms</strong></li>
+            <li>Platform: <strong>Raspberry Pi 5</strong></li>
+            <li>OS: <strong>Raspberry Pi OS</strong></li>
+          </ul>
+        </div>
+        <div class="spec-card">
+          <h4>🔧 Hardware</h4>
+          <ul>
+            <li>MCU: <strong>Raspberry Pi 5</strong></li>
+            <li>Camera: <strong>Logitech C270</strong></li>
+            <li>Display: <strong>3.5" TFT LCD</strong></li>
+            <li>Storage: <strong>MicroSD 64GB</strong></li>
+          </ul>
+        </div>
+        <div class="spec-card">
+          <h4>🌐 Connectivity</h4>
+          <ul>
+            <li>Mode: <strong>Fully Offline</strong></li>
+            <li>Protocol: <strong>WebSocket (LAN)</strong></li>
+            <li>Dashboard: <strong>Browser-based</strong></li>
+            <li>Cloud: <strong>Not Required</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TEAM ─── -->
+  <section id="team" class="section team-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">The Builders</span>
+        <h2 class="section-title">Meet the <span class="gradient-text">Team</span></h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar" style="background:linear-gradient(135deg,#6C63FF,#3B82F6)">
+            <span>AP</span>
+          </div>
+          <h3>Akshat Prakhar</h3>
+          <p class="team-role">Lead Developer</p>
+          <p class="team-desc">AI model integration, system architecture & Flask backend</p>
+          <div class="team-tags">
+            <span class="team-tag">Python</span>
+            <span class="team-tag">YOLOv8</span>
+            <span class="team-tag">Flask</span>
+          </div>
+        </div>
+        <div class="team-card featured">
+          <div class="team-badge-top">Project Lead</div>
+          <div class="team-avatar" style="background:linear-gradient(135deg,#F59E0B,#EF4444)">
+            <img src="Logo (2).jpeg" alt="Project" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+          </div>
+          <h3>SecureVision 90</h3>
+          <p class="team-role">Engineering Notebook 2026</p>
+          <p class="team-desc">AI-Powered Offline Surveillance System built for real-world deployment</p>
+          <div class="team-tags">
+            <span class="team-tag">B.R. Ambedkar SOSE</span>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:linear-gradient(135deg,#10B981,#059669)">
+            <span>TM</span>
+          </div>
+          <h3>Team Members</h3>
+          <p class="team-role">Co-Developers</p>
+          <p class="team-desc">Hardware setup, testing, dashboard UI & live demonstration</p>
+          <div class="team-tags">
+            <span class="team-tag">Raspberry Pi</span>
+            <span class="team-tag">OpenCV</span>
+            <span class="team-tag">MediaPipe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ENGINEERING NOTEBOOK ─── -->
+  <section id="notebook" class="section notebook-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Documentation</span>
+        <h2 class="section-title">Engineering <span class="gradient-text">Notebook</span></h2>
+        <p class="section-sub">Full project documentation — read online or download the PDF</p>
+      </div>
+
+      <div class="notebook-hero-card">
+        <div class="nb-card-left">
+          <div class="nb-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="nb-icon">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <div class="nb-meta">
+            <h3 class="nb-title">AI Surveillance System</h3>
+            <p class="nb-subtitle">Engineering Notebook · 2026</p>
+            <div class="nb-details">
+              <span class="nb-detail-chip">📄 PDF Document</span>
+              <span class="nb-detail-chip">🎓 B.R. Ambedkar SOSE</span>
+              <span class="nb-detail-chip">📅 June 2026</span>
+            </div>
+            <p class="nb-description">
+              The complete engineering notebook for the SecureVision 90 project — covering problem statement, system design, hardware setup, AI model selection, testing results, and conclusions.
+            </p>
+          </div>
+        </div>
+        <div class="nb-card-right">
+          <div class="nb-preview-thumb" onclick="openPdfViewer()">
+            <div class="nb-preview-overlay">
+              <div class="nb-play-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+              </div>
+              <span class="nb-preview-label">Click to Read</span>
+            </div>
+            <div class="nb-page-lines">
+              <div class="nb-page-line"></div>
+              <div class="nb-page-line short"></div>
+              <div class="nb-page-line"></div>
+              <div class="nb-page-line short"></div>
+              <div class="nb-page-line"></div>
+              <div class="nb-page-line"></div>
+              <div class="nb-page-line short"></div>
+              <div class="nb-page-line"></div>
+            </div>
+          </div>
+          <div class="nb-actions">
+            <button class="nb-btn nb-btn-read" onclick="openPdfViewer()" id="btn-read-notebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              Read Online
+            </button>
+            <a class="nb-btn nb-btn-download" id="btn-download-notebook"
+               href="Most surveillance systems are either passive CCTV cameras that only record incidents or expensive AI solutions that rely on cloud servers and constant internet connectivity. Running advanced featu.pdf"
+               download="SecureVision90_Engineering_Notebook.pdf">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download PDF
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notebook highlights / table of contents -->
+      <div class="notebook-toc">
+        <h3 class="toc-title">📋 What's Inside</h3>
+        <div class="toc-grid">
+          <div class="toc-item">
+            <span class="toc-num">01</span>
+            <div class="toc-content">
+              <h4>Problem Statement</h4>
+              <p>Why existing surveillance solutions fail in offline, low-cost environments</p>
+            </div>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">02</span>
+            <div class="toc-content">
+              <h4>System Architecture</h4>
+              <p>Hardware selection, software stack, and multi-threaded pipeline design</p>
+            </div>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">03</span>
+            <div class="toc-content">
+              <h4>AI Model Selection</h4>
+              <p>Evaluation of YOLOv8, DeepFace, MediaPipe for edge deployment</p>
+            </div>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">04</span>
+            <div class="toc-content">
+              <h4>Implementation</h4>
+              <p>Step-by-step build process with hardware connections and code structure</p>
+            </div>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">05</span>
+            <div class="toc-content">
+              <h4>Testing & Results</h4>
+              <p>Accuracy benchmarks, FPS measurements, and real-world test cases</p>
+            </div>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">06</span>
+            <div class="toc-content">
+              <h4>Conclusions</h4>
+              <p>Lessons learned, future improvements, and real-world deployment potential</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── PDF VIEWER MODAL ─── -->
+  <div class="pdf-modal" id="pdfModal">
+    <div class="pdf-modal-header">
+      <div class="pdf-modal-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;flex-shrink:0">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+        </svg>
+        <span>SecureVision 90 — Engineering Notebook</span>
+      </div>
+      <div class="pdf-modal-actions">
+        <a class="pdf-action-btn"
+           href="Most surveillance systems are either passive CCTV cameras that only record incidents or expensive AI solutions that rely on cloud servers and constant internet connectivity. Running advanced featu.pdf"
+           download="SecureVision90_Engineering_Notebook.pdf" title="Download PDF">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download
+        </a>
+        <button class="pdf-action-btn pdf-close-btn" onclick="closePdfViewer()" title="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+          Close
+        </button>
+      </div>
+    </div>
+    <div class="pdf-modal-body">
+      <iframe id="pdfIframe"
+        src=""
+        class="pdf-iframe"
+        title="Engineering Notebook PDF">
+        <p>Your browser does not support iframes.
+          <a href="Most surveillance systems are either passive CCTV cameras that only record incidents or expensive AI solutions that rely on cloud servers and constant internet connectivity. Running advanced featu.pdf" download>Click here to download</a>.
+        </p>
+      </iframe>
+    </div>
+  </div>
+  <div class="pdf-modal-backdrop" id="pdfBackdrop" onclick="closePdfViewer()"></div>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="Logo (2).jpeg" alt="Logo" class="footer-logo" />
+          <div>
+            <div class="footer-title">SecureVision 90</div>
+            <div class="footer-sub">Engineering Notebook Portfolio · 2026</div>
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="#hero">Home</a>
+          <a href="#features">Features</a>
+          <a href="#stack">Tech Stack</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#notebook">📓 Notebook</a>
+        </div>
+        <div class="footer-copy">
+          Built with ❤️ using Python, YOLOv8 & Raspberry Pi 5
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── LIGHTBOX ─── -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lb-close" onclick="closeLightbox()">✕</button>
+    <button class="lb-prev" id="lbPrev" onclick="event.stopPropagation();shiftLightbox(-1)">‹</button>
+    <button class="lb-next" id="lbNext" onclick="event.stopPropagation();shiftLightbox(1)">›</button>
+    <div class="lb-content" onclick="event.stopPropagation()">
+      <img id="lbImage" src="" alt="Gallery Image" />
+      <div class="lb-caption" id="lbCaption"></div>
+    </div>
+  </div>
+
+  <!-- ─── LIBRARY MODAL ─── -->
+  <div class="lib-modal" id="libModal" onclick="closeLibModal()">
+    <div class="lib-modal-inner" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeLibModal()">✕</button>
+      <div class="modal-logo-wrap">
+        <img id="modalLogo" src="" alt="" class="modal-logo" />
+        <div id="modalLogoText" class="modal-logo-text-large" style="display:none"></div>
+      </div>
+      <h2 id="modalTitle" class="modal-title"></h2>
+      <p id="modalTagline" class="modal-tagline"></p>
+      <div id="modalBody" class="modal-body"></div>
+      <div id="modalTags" class="modal-tags"></div>
+      <a id="modalLink" href="#" target="_blank" rel="noopener" class="modal-link-btn">Visit Official Docs →</a>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
