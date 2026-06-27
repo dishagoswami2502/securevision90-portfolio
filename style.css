@@ -485,8 +485,20 @@ button { font-family:inherit; cursor:pointer; }
 /* ────────────────────────────────────────────
    13. TEAM
 ──────────────────────────────────────────── */
-.team-section { background:var(--bg-1); }
+/* Team mentor highlight row */
+.team-mentor-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+.team-card-mentor {
+  max-width: 460px;
+  width: 100%;
+}
+
+/* Team grid stays 3-column for 6 cards */
 .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+
 .team-card {
   background:var(--bg-card); border:1px solid var(--border);
   border-radius:var(--r-lg); padding:34px 22px; text-align:center;
