@@ -29,18 +29,18 @@
       vx: randomBetween(-0.3, 0.3),
       vy: randomBetween(-0.5, -0.1),
       alpha: randomBetween(0.2, 0.8),
-      color: ['#6D5BE6', '#8B7CF8', '#C9A84C', '#E2C270', '#2ABFBF'][Math.floor(Math.random() * 5)],
+      color: ['#E03880', '#F272AB', '#F0A000', '#F6C040', '#2DD4BF'][Math.floor(Math.random() * 5)],
     };
   }
 
   for (let i = 0; i < 120; i++) particles.push(createParticle());
 
   function drawLine(p1, p2, dist) {
-    const alpha = (1 - dist / 120) * 0.13;
+    const alpha = (1 - dist / 120) * 0.12;
     ctx.beginPath();
     ctx.moveTo(p1.x, p1.y);
     ctx.lineTo(p2.x, p2.y);
-    ctx.strokeStyle = `rgba(109,91,230,${alpha})`;
+    ctx.strokeStyle = `rgba(224,56,128,${alpha})`;
     ctx.lineWidth = 0.5;
     ctx.stroke();
   }
