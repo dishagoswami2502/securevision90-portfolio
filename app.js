@@ -29,18 +29,18 @@
       vx: randomBetween(-0.3, 0.3),
       vy: randomBetween(-0.5, -0.1),
       alpha: randomBetween(0.2, 0.8),
-      color: ['#3B82F6', '#06B6D4', '#6C63FF', '#F59E0B'][Math.floor(Math.random() * 4)],
+      color: ['#6D5BE6', '#8B7CF8', '#C9A84C', '#E2C270', '#2ABFBF'][Math.floor(Math.random() * 5)],
     };
   }
 
   for (let i = 0; i < 120; i++) particles.push(createParticle());
 
   function drawLine(p1, p2, dist) {
-    const alpha = (1 - dist / 120) * 0.15;
+    const alpha = (1 - dist / 120) * 0.13;
     ctx.beginPath();
     ctx.moveTo(p1.x, p1.y);
     ctx.lineTo(p2.x, p2.y);
-    ctx.strokeStyle = `rgba(59,130,246,${alpha})`;
+    ctx.strokeStyle = `rgba(109,91,230,${alpha})`;
     ctx.lineWidth = 0.5;
     ctx.stroke();
   }
@@ -78,22 +78,18 @@
    2. NAVBAR — Active Link + Hamburger
 ══════════════════════════════════════════ */
 (function initNav() {
-  const navbar = document.getElementById('navbar');
+  const navbar    = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  const links = document.querySelectorAll('.nav-link');
+  const navLinks  = document.getElementById('navLinks');
+  const links     = document.querySelectorAll('.nav-link');
 
+  // Scroll: class toggle + active link
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      navbar.style.background = 'rgba(5,10,20,0.95)';
-    } else {
-      navbar.style.background = 'rgba(5,10,20,0.8)';
-    }
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
 
-    // Active link highlight
     const sections = document.querySelectorAll('section[id]');
     sections.forEach(sec => {
-      const top = sec.offsetTop - 100;
+      const top    = sec.offsetTop - 90;
       const bottom = top + sec.offsetHeight;
       if (window.scrollY >= top && window.scrollY < bottom) {
         links.forEach(l => l.classList.remove('active'));
@@ -103,13 +99,34 @@
     });
   });
 
+  // Hamburger toggle — also animate the icon
   hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
-  // Close menu on link click
+  // Close menu on link click or outside tap
   links.forEach(l => {
-    l.addEventListener('click', () => navLinks.classList.remove('open'));
+    l.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Close on backdrop tap (mobile)
+  document.addEventListener('click', (e) => {
+    if (
+      navLinks.classList.contains('open') &&
+      !navLinks.contains(e.target) &&
+      !hamburger.contains(e.target)
+    ) {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    }
   });
 })();
 
@@ -118,15 +135,10 @@
    3. SCROLL REVEAL ANIMATIONS
 ══════════════════════════════════════════ */
 (function initReveal() {
-  const style = document.createElement('style');
-  style.textContent = `
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.revealed { opacity: 1; transform: translateY(0); }
-  `;
-  document.head.appendChild(style);
+  // Styles are now in style.css — no injection needed
 
   const targets = document.querySelectorAll(
-    '.feature-card, .lib-card, .gallery-item, .team-card, .spec-card, .about-highlight-cards .highlight-card, .arch-step'
+    '.feature-card, .lib-card, .gallery-item, .team-card, .spec-card, .about-highlight-cards .highlight-card, .arch-step, .toc-item'
   );
 
   targets.forEach((el, i) => {
