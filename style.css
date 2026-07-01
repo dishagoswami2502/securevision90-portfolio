@@ -527,6 +527,18 @@ button { font-family:inherit; cursor:pointer; }
   font-size:0.68rem; padding:3px 10px; border-radius:50px;
   background:rgba(224,56,128,0.12); border:1px solid rgba(224,56,128,0.22); color:var(--rose-lt);
 }
+.team-github-btn {
+  display:inline-flex; align-items:center; gap:7px;
+  margin-top:14px; padding:9px 18px; border-radius:50px;
+  background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12);
+  color:var(--text-1); font-size:0.78rem; font-weight:600;
+  transition:var(--t); text-decoration:none; width:100%; justify-content:center;
+}
+.team-github-btn svg { width:16px; height:16px; flex-shrink:0; }
+.team-github-btn:hover {
+  background:var(--rose); border-color:var(--rose); color:#fff;
+  transform:translateY(-2px); box-shadow:0 6px 20px rgba(224,56,128,0.35);
+}
 
 /* ────────────────────────────────────────────
    14. ENGINEERING NOTEBOOK
