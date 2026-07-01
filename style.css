@@ -710,6 +710,38 @@ button { font-family:inherit; cursor:pointer; }
 .footer-links a:hover { color:var(--amber); }
 .footer-copy  { font-size:0.78rem; color:var(--text-2); }
 
+/* Footer contributors strip */
+.footer-contributors {
+  border-top:1px solid var(--border);
+  margin-top:22px; padding-top:18px;
+  display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+}
+.footer-contrib-label {
+  font-size:0.72rem; font-weight:700; color:var(--text-2);
+  text-transform:uppercase; letter-spacing:0.08em; flex-shrink:0;
+}
+.footer-contrib-list { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.footer-contrib-chip {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 14px; border-radius:50px;
+  background:rgba(255,255,255,0.04); border:1px solid var(--border);
+  color:var(--text-1); font-size:0.78rem; font-weight:500;
+  text-decoration:none; transition:var(--t);
+}
+.footer-contrib-chip img {
+  width:22px; height:22px; border-radius:50%; object-fit:cover; flex-shrink:0;
+}
+.footer-contrib-chip:hover {
+  background:rgba(240,160,0,0.1); border-color:var(--amber);
+  color:var(--amber); transform:translateY(-2px);
+}
+.footer-contrib-all {
+  background:rgba(224,56,128,0.08); border-color:rgba(224,56,128,0.25); color:var(--rose-lt);
+}
+.footer-contrib-all:hover {
+  background:var(--rose); border-color:var(--rose); color:#fff;
+}
+
 /* ────────────────────────────────────────────
    17. LIGHTBOX
 ──────────────────────────────────────────── */
