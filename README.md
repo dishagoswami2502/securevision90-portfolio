@@ -3,7 +3,7 @@
 > **Engineering Notebook Portfolio · 2026**  
 > B.R. Ambedkar School of Specialised Excellence
 
-[![GitHub Pages](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-blue?style=for-the-badge&logo=github)](https://dishagoswami2502.github.io/securevision90-portfolio)
+[![GitHub Pages](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-blue?style=for-the-badge&logo=github)](https://bhaba.github.io/securevision90-portfolio)
 [![Made With](https://img.shields.io/badge/Made%20with-HTML%20%7C%20CSS%20%7C%20JS-orange?style=for-the-badge)](https://github.com/dishagoswami2502/securevision90-portfolio)
 
 ---
